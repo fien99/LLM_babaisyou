@@ -1,0 +1,17 @@
+{"levels" : [
+
+	{"id":1,"ascii":"__________\n_B12..F13_\n_........_\n_........_\n_........_\n_.b....f._\n_........_\n_........_\n_........_\n__________","rules":"BABA IS YOU and FLAG IS WIN","solution":"rrrrr"},
+	{"id":2,"ascii":"__________\n_B12...13_\n_........_\n_........_\n_.....F.._\n_.b....f._\n_........_\n_........_\n_........_\n__________","rules":"BABA IS YOU","solution:":"rrrruuudddr"},
+	{"id":3,"ascii":"__________\n_........_\n_...B12.._\n_........_\n_.1......_\n_.3..b..._\n_........_\n_........_\n_........_\n__________","rules":"BABA IS YOU","solution":"luullldrrlldrrdru"},
+	{"id":4,"ascii":"__________\n_B12..F13_\n_........_\n_........_\n_.b....r._\n_........_\n_...R...._\n_........_\n_......1F_\n__________","rules":"BABA IS YOU and FLAG IS WIN","solution":"ddrrrurdduuur"},
+	{"id":5,"ascii":"__________\n_B12..F13_\n_........_\n_........_\n_.b....r._\n_........_\n_.R1R...._\n_........_\n_.....R1F_\n__________","rules":"BABA IS YOU, FLAG IS WIN, ROCK IS ROCK and ROCK IS FLAG","solution":"rrddrrruu"},
+	{"id":6,"ascii":"__________\n_B12..F13_\n_........_\n_...rr..._\n_..r.fr.._\n_..r..r.._\n_...rr..._\n_.b......_\n_.....R15_\n__________","rules":"BABA IS YOU, FLAG IS WIN and ROCK IS PUSH","solution":"ruurru"},
+	{"id":7,"ascii":"__________\n_K......._\n_1k.B..12_\n_7......._\n_........_\n_..b.f..._\n_........_\n_........_\n_.....F13_\n__________","rules":"KEKE IS MOVE and FLAG IS WIN","solution":"sssrr"},
+	{"id":8,"ascii":"__________\n_....f..._\n_........_\n_wwwwwwww_\n_.W......_\n_.1..b..._\n_.6......_\n_........_\n_B12..F13_\n__________","rules":"BABA IS YOU, FLAG IS WIN and WALL IS STOP","solution":"ullluuurrr"},
+	{"id":9,"ascii":"__________\n_........_\n_S14....._\n_....sss._\n_.b..sfs._\n_....sss._\n_........_\n_........_\n_B12..F13_\n__________","rules":"BABA IS YOU, FLAG IS WIN and SKULL IS KILL","solution":"ruurrrdd"},
+	{"id":10,"ascii":"__________\n_B12gg..._\n_F13gg.f._\n_gbggg..._\n_g.gggggg_\n_g.gggggg_\n_g.gg...._\n_g....G10_\n_gggg...._\n__________","rules":"BABA IS YOU, FLAG IS WIN and GOOP IS SINK","solution":"ddddrrrdrruuruuulu"},
+	{"id":11,"ascii":"__________\n_B12gg..._\n_F13gg.f._\n_gbggg..._\n_g.gggggg_\n_g.gggggg_\n_G.ggg.rr_\n_1......._\n_0R15g..._\n__________","rules":"BABA IS YOU, FLAG IS WIN, GOOP IS SINK and ROCK IS PUSH","solution":"ddddrrrrrrudllurdruuuuul"},
+	{"id":12,"ascii":"__________\n_...f...._\n_........_\n_llllllll_\n_L.....B._\n_1...b.1._\n_8.....9._\n_........_\n_B12..F13_\n__________","rules":"BABA IS YOU, FLAG IS WIN, LAVA IS HOT and BABA IS MELT","solution":"urrlluuul"},
+	{"id":13,"ascii":"__________\n_........_\n_..k..f.._\n_wwwwwwww_\n_.......W_\n_..K..b.1_\n_.......6_\n_B12....._\n_.....F13_\n__________","rules":"BABA IS YOU, FLAG IS WIN and WALL IS STOP","solution":"llllulddrrr"},
+	{"id":14,"ascii":"__________\n_L16....._\n_.....f.._\n_llllllll_\n_........_\n_B....b.._\n_1......._\n_2..F13.._\n_........_\n__________","rules":"BABA IS YOU, FLAG IS WIN and LAVA IS STOP","solution":"llllulddrrr"}
+	]}

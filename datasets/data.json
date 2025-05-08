@@ -1,0 +1,1238 @@
+{
+    "data": [
+    {
+        "question": "What is the rule format in this game?",
+        "answer": "A rule in 'Baba Is You' is active if text blocks are aligned horizontally or vertically and form a valid statement. A valid rule format is either '<object_text> IS <property_text>', '<object1_text> IS <object2_text>', or '<object1_text> IS <object1_text>'."
+    },
+    {
+        "question": "How can the player control an object in the game?",
+        "answer": "The player can control an object if there is an active rule in the format '<object_text> IS YOU'. The object associated with the <object_text> becomes controllable by the player."
+    },
+    {
+        "question": "How can a player win the level?",
+        "answer": "The player wins if the object they control (assigned by the rule '<object_text> IS YOU') reaches or becomes an object assigned the 'WIN' property, through the rule '<object_text> IS WIN'."
+    },
+    {
+        "question": "What does '<object_text> IS STOP' mean?",
+        "answer": "If a rule '<object_text> IS STOP' is active, the object associated with <object_text> becomes impassable, meaning no other objects, including the player, can pass through it."
+    },
+    {
+        "question": "How does '<object_text> IS MELT' and '<object_text> IS HOT' work together?",
+        "answer": "An object assigned the 'MELT' property through '<object_text> IS MELT' will be destroyed if it comes into contact with an object assigned the 'HOT' property through '<object_text> IS HOT'. However, if an object is both HOT and MELT, it will self-destruct."
+    },
+    {
+        "question": "What happens if an object has the property 'KILL'?",
+        "answer": "If an object has the 'KILL' property through the rule '<object_text> IS KILL', it will destroy any object controlled by the player ('YOU') if they come into contact with it, while remaining intact itself."
+    },
+    {
+        "question": "How can a player push an object?",
+        "answer": "The player can push an object if there is an active rule '<object_text> IS PUSH', which allows the object associated with <object_text> to be moved by the player or other moving objects."
+    },
+    {
+        "question": "Describe the action 'Move_To[<object>]'.",
+        "answer": "The action 'Move_To[<object>]' means moving the object controlled by the player to the specified object <object> in the grid. This action is only possible if the specified object is present in the level grid."
+    },
+    {
+        "question": "What does the action 'Brake_Rule[<object_text> IS <property_text>]' do?",
+        "answer": "The action 'Brake_Rule[<object_text> IS <property_text>]' removes the specified property from the <object_text>. It can only be taken if the rule is active in the grid, and both <property_text> and 'IS' text blocks are present."
+    },
+    {
+        "question": "Can the player transform one object into another?",
+        "answer": "Yes, the player can transform an object into another by making the rule '<object1_text> IS <object2_text>'. This rule changes all instances of <object1> into <object2> when active."
+    },
+    {
+        "question": "How does the 'SINK' property affect gameplay?",
+        "answer": "An object with the 'SINK' property will destroy itself and any other object it touches. This property is set by the rule '<object_text> IS SINK'."
+    },
+    {
+        "question": "What does the action 'Push[<object_text>_To[<property_text>]]' mean?",
+        "answer": "This action involves the player-controlled object pushing the specified <object_text> text block towards the <property_text> text block, if both text blocks are in the grid and not placed against the border."
+    },
+    {
+        "question": "How can the player make an object immutable?",
+        "answer": "To make an object immutable, the player can use the rule format '<object1_text> IS <object1_text>'. When this rule is active, the object becomes unchangeable by other rules."
+    },
+    {
+        "question": "What are the main strategies for winning a level in 'Baba Is You'?",
+        "answer": "The main strategies involve manipulating rules to create a win condition, usually by making an object 'YOU' and bringing it to a 'WIN' object or changing 'YOU' to a 'WIN' object itself. Breaking obstacles like 'STOP' or 'KILL' can also help the player reach the goal."
+    },
+    {
+        "question": "What happens when an object has both 'HOT' and 'MELT' properties?",
+        "answer": "If an object has both 'HOT' and 'MELT' properties, it will self-destruct immediately."
+    },
+    {
+        "question": "Describe the action 'Make_Rule[<object_text> IS <property_text>]'?",
+        "answer": "The 'Make_Rule[<object_text> IS <property_text>]' action creates a rule that assigns the specified property to the <object_text>. This action can only be taken if <property_text>, 'IS', and <object_text> are all present in the grid level."
+    },
+    {
+        "question": "What happens if 'BABA IS YOU' and 'SKULL IS KILL' are active, and Baba touches a Skull?",
+        "answer": "If 'BABA IS YOU' and 'SKULL IS KILL' are both active, and Baba (the player-controlled object) touches a Skull, Baba will be destroyed, causing the player to lose control of their character, and likely fail the level unless another 'YOU' object is present."
+    },
+    {
+        "question": "How does the 'MOVE' property affect an object?",
+        "answer": "If an object has the 'MOVE' property set by the rule '<object_text> IS MOVE', it will move one step in its facing direction on each turn, either blocking or potentially colliding with other objects based on its movement path."
+    },
+
+    {
+      "question": "What does 'BABA IS WIN' do?",
+      "answer": "If the rule 'BABA IS WIN' is active, then Baba (the object associated with 'BABA') becomes the winning condition. The player only needs to control Baba (if 'BABA IS YOU' is active) to instantly win the level."
+    },
+
+    {
+        "question": "What happens if both 'BABA IS YOU' and 'KEKE IS YOU' are active?",
+        "answer": "If both 'BABA IS YOU' and 'KEKE IS YOU' are active, the player controls both Baba and Keke simultaneously. Any movement input will move both characters in the same direction if possible."
+    },
+    {
+        "question": "Can a rule make an object both 'YOU' and 'WIN'?",
+        "answer": "Yes, if a rule like 'BABA IS YOU' and 'BABA IS WIN' are both active, then Baba is both controllable and the win condition. This would mean that as soon as the player controls Baba, they win immediately."
+    },
+    {
+        "question": "What does the action 'Move_To[<object_text>]' involve?",
+        "answer": "The 'Move_To[<object_text>]' action requires the player to move their controlled object toward the <object_text> in the grid. This could be part of a strategy to align text blocks into a specific rule."
+    },
+    {
+        "question": "What happens if a rule 'ROCK IS YOU' and 'ROCK IS SINK' are both active?",
+        "answer": "If both 'ROCK IS YOU' and 'ROCK IS SINK' are active, any player-controlled rocks will self-destruct upon touching someting, since a rock that is both 'YOU' and 'SINK' will destroy itself upon any interaction, leading to game failure unless other 'YOU' objects are present."
+    },
+    {
+        "question": "What does the 'PUSH' property enable in terms of interactions with other objects?",
+        "answer": "When an object has the 'PUSH' property, it can be moved by other objects with 'YOU' or 'MOVE' properties. This allows the player to push text blocks or objects into positions that form rules or clear paths."
+    },
+    {
+        "question": "Can an object have multiple properties like 'YOU' and 'HOT' at the same time?",
+        "answer": "Yes, an object can have multiple properties like 'YOU' and 'HOT' if the rules are active. This means the player can control the object, and it will also have the properties of being 'HOT', affecting 'MELT' objects it comes into contact with."
+    },
+    {
+        "question": "What happens if 'LAVA IS HOT' and 'BABA IS MELT' are both active and Baba moves into Lava?",
+        "answer": "If 'LAVA IS HOT' and 'BABA IS MELT' are active, and Baba touches Lava, Baba will melt and be destroyed, which can result in losing the level if Baba was the only 'YOU' object."
+    },
+    {
+        "question": "Describe how the action 'Push[<property1_text>_To[<property2_text>]]' works.",
+        "answer": "The 'Push[<property1_text>_To[<property2_text>]]' action allows the player to push the <property1_text> block toward the <property2_text> block. This can help create or break rules if the two blocks are needed for a particular rule format."
+    },
+    {
+      "question": "What does 'BABA IS MOVE' do?",
+      "answer": "If 'BABA IS MOVE' is active, Baba will automatically move one tile in its facing direction each turn. This movement happens independently of player input and can help or hinder progress depending on the layout."
+    },
+    {
+      "question": "What happens if 'LAVA IS SINK' and 'ROCK IS PUSH' are both active, and you push a rock into lava?",
+      "answer": "If 'LAVA IS SINK' and 'ROCK IS PUSH' are active, pushing a rock into lava will destroy both the rock and the lava tile, creating an empty space where the lava was."
+    },
+    {
+      "question": "Can two objects be controlled at once, and how would they move?",
+      "answer": "Yes, if there are two 'YOU' objects like 'BABA IS YOU' and 'KEKE IS YOU', both Baba and Keke are controlled by the player simultaneously. Any movement input will move both objects in the chosen direction if there are no obstacles."
+    },
+    {
+      "question": "What happens if 'FLAG IS YOU' and 'FLAG IS WIN' are both active?",
+      "answer": "If 'FLAG IS YOU' and 'FLAG IS WIN' are both active, the player immediately wins the game upon controlling the flag, as it meets the win condition instantly."
+    },
+    {
+      "question": "Explain what the 'Brake_Rule[<object1_text> IS <object2_text>]' action does.",
+      "answer": "The 'Brake_Rule[<object1_text> IS <object2_text>]' action deactivates a rule that transforms one object into another. This does not revert any transformed objects back to their original state."
+    },
+    {
+      "question": "How can 'Make_Rule[<object1_text> IS <object2_text>]' change gameplay?",
+      "answer": "Activating 'Make_Rule[<object1_text> IS <object2_text>]' allows all instances of <object1_text> objects to transform into <object2_text> objects. This transformation can be used strategically to create needed objects or change obstacles."
+    },     
+    {
+      "question": "What is the effect of 'BABA IS MELT' if 'LAVA IS HOT' is nearby?",
+      "answer": "With 'BABA IS MELT' and 'LAVA IS HOT' active, Baba will be destroyed upon touching Lava because Melt objects are destroyed by Hot objects. The player would need to avoid direct contact with Lava or disable one of the rules."
+    },
+    {
+      "question": "What does 'BABA IS SINK' do in the grid?",
+      "answer": "'BABA IS SINK' makes Baba capable of destroying any object it touches, including itself, by sinking. When Baba touches another object, both Baba and the other object are destroyed, so careful movement is required to avoid losing control of Baba."
+    },
+    {
+      "question": "How can a player create an impassable barrier using rules?",
+      "answer": "A player can make any object impassable by activating the rule '<object_text> IS STOP'. Any object with this property cannot be moved through by any other object, effectively creating a wall or barrier."
+    },
+    {
+      "question": "What happens if 'BABA IS HOT' and 'BABA IS MELT' are active simultaneously?",
+      "answer": "If 'BABA IS HOT' and 'BABA IS MELT' are both active, Baba will self-destruct because an object that is both HOT and MELT destroys itself automatically. This typically ends the game unless other 'YOU' objects are present."
+    },
+    {
+      "question": "Describe what happens when 'FLAG IS WIN' is active, but the player cannot reach the flag.",
+      "answer": "If 'FLAG IS WIN' is active but the player cannot reach the flag due to obstacles or a 'STOP' property, the player will need to modify rules or move blocks around to either create an alternative path or change the win condition."
+    },
+    {
+      "question": "What does 'Push[<object_text>_To[<object_text>]]' achieve?",
+      "answer": "'Push[<object_text>_To[<object_text>]]' allows the player to push one text block towards another, which can help align blocks to form a rule or remove text from unwanted areas."
+    },
+    {
+      "question": "How can you change an object's properties mid-level?",
+      "answer": "To change an object's properties mid-level, you can create or break rules that affect the object, such as '<object_text> IS PUSH' to make it movable or '<object_text> IS STOP' to block it from moving."
+    },
+    {
+      "question": "What are some common strategies for creating a path when obstacles are blocking the player?",
+      "answer": "Common strategies include breaking 'STOP' rules that make obstacles impassable, creating 'PUSH' properties to move objects out of the way, or transforming obstacles into passable objects by forming transformation rules."
+    },
+    {
+      "question": "How does 'Brake_Rule[<object_text> IS PUSH]' affect gameplay?",
+      "answer": "'Brake_Rule[<object_text> IS PUSH]' removes the 'PUSH' property from the specified object, making it unmovable by the player. This can prevent accidental rearrangement or allow it to act as a fixed barrier."
+    },
+    {
+      "question": "What happens if the player activates 'BABA IS WIN' while also controlling Baba?",
+      "answer": "If the player activates 'BABA IS WIN' while also controlling Baba, they win instantly because Baba meets the win condition while being controlled by the player."
+    },
+    {
+      "question": "Can multiple 'WIN' conditions exist simultaneously?",
+      "answer": "Yes, multiple 'WIN' conditions can exist simultaneously, such as 'FLAG IS WIN' and 'BABA IS WIN'. The player can reach or become any of these objects to complete the level."
+    },
+    {
+      "question": "What happens if an object with 'MOVE' and 'SINK' properties touches another object?",
+      "answer": "If an object with both 'MOVE' and 'SINK' properties touches another object, both objects are destroyed upon contact, potentially clearing paths or obstacles while sacrificing the moving object."
+    },
+    {
+      "question": "Explain what the rule 'BABA IS ROCK' would do.",
+      "answer": "The rule 'BABA IS ROCK' would transform all instances of Baba into Rock, effectively changing all Baba objects in the level grid into Rock objects, losing any previous properties associated with Baba."
+    },
+    {
+      "question": "What is the function of 'Make_Rule[<object1_text> IS <object1_text>]'?",
+      "answer": "The 'Make_Rule[<object1_text> IS <object1_text>]' action creates a rule that makes the specified object immutable. This means it will no longer be affected by any transformations or rule changes."
+    },
+    {
+      "question": "How would a 'Move_To[<property_text>]' action help in gameplay?",
+      "answer": "A 'Move_To[<property_text>]' action allows the player to move toward a specific <property_text> block, potentially to interact with or align it with other text blocks to create or change rules in the level."
+    },
+    {
+      "question": "What does 'Brake_Rule[<object_text> IS WIN]' do?",
+      "answer": "'Brake_Rule[<object_text> IS WIN]' deactivates the win condition associated with <object_text>, meaning reaching or becoming this object will no longer allow the player to win. It can be useful to prevent unwanted wins."
+    },
+    {
+      "question": "What is the effect of 'LOVE IS YOU'?",
+      "answer": "'LOVE IS YOU' makes Love the object controlled by the player. If Love is reachable or can move, the player can use it to interact with other objects or reach a win condition if available."
+    },
+    {
+      "question": "What does 'FLAG IS PUSH' do?",
+      "answer": "When 'FLAG IS PUSH' is active, the flag becomes movable, meaning the player can push it around the grid to reposition it or align it with other text blocks to create new rules."
+    },
+      {
+          "question": "What happens if 'BABA IS YOU' and 'ROCK IS YOU' are both active, but Baba and Rock are separated by obstacles?",
+          "answer": "If both 'BABA IS YOU' and 'ROCK IS YOU' are active but separated, the player controls both independently. They move in the same direction simultaneously, but obstacles can affect each object differently. This can create unique solutions or challenges depending on the level layout."
+      },
+      {
+          "question": "How can 'Move_To[<object_text>]' be used to complete a level when multiple text blocks are available?",
+          "answer": "'Move_To[<object_text>]' allows the player to approach a specific text block to manipulate it into a rule. If multiple text blocks exist, the player can prioritize blocks that will create useful rules, like 'IS WIN' or 'IS YOU'. This can also enable strategic rule changes mid-level."
+      },
+      {
+          "question": "What does 'BABA IS KEKE' achieve if both Baba and Keke are in the grid?",
+          "answer": "'BABA IS KEKE' transforms all Baba objects into Keke, replacing all appearances of Baba in the grid. This transformation could change which objects are controlled or which can complete win conditions if there are related properties set for Keke."
+      },
+      {
+          "question": "Explain how 'FLAG IS PUSH' and 'FLAG IS WIN' can work together to win a level.",
+          "answer": "With 'FLAG IS PUSH' and 'FLAG IS WIN' active, the player can push the flag into a position where it can be reached or aligned for a win condition. This allows the player to rearrange the flag to meet an otherwise inaccessible win condition."
+      },
+      {
+          "question": "What is the effect of 'BABA IS YOU' combined with 'BABA IS SINK'?",
+          "answer": "With both 'BABA IS YOU' and 'BABA IS SINK' active, Baba will destroy itself upon touching any other object, potentially ending the game if no other 'YOU' objects exist. Careful navigation is required to avoid unintentional destruction."
+      }, 
+      {
+          "question": "What does 'Brake_Rule[FLAG IS WIN]' accomplish in a level where the flag is otherwise unreachable?",
+          "answer": "By breaking 'FLAG IS WIN', the player removes the win condition associated with the flag, which could open opportunities to set another object as 'WIN' or to move the flag around without worrying about it ending the game prematurely."
+      },
+      {
+          "question": "How does combining 'ROCK IS MOVE' and 'LAVA IS STOP' impact the movement of rocks near lava?",
+          "answer": "With 'ROCK IS MOVE' and 'LAVA IS STOP' active, rocks will attempt to move each turn but will be blocked by lava tiles due to the 'STOP' property, effectively trapping the rocks if they are surrounded by lava."
+      },
+      {
+          "question": "What happens if both 'BABA IS HOT' and 'BABA IS YOU' are active, but Baba encounters a 'MELT' object?",
+          "answer": "If 'BABA IS HOT' and 'BABA IS YOU' are active, and Baba touches a 'MELT' object, the object will be destroyed on contact. Baba remains safe because 'HOT' does not harm 'YOU' objects directly unless 'MELT' is also applied to them."
+      },
+      {
+          "question": "Can an object be made 'WIN' and 'STOP' simultaneously, and what is the effect?",
+          "answer": "Yes, an object can be both 'WIN' and 'STOP'. This creates an unusual scenario where the player must reach the object to win, but cannot move onto it due to the 'STOP' property. In such cases, the player needs to deactivate 'STOP' or change the win condition."
+      },
+      {
+          "question": "How can 'Push[<object_text>_To[<property_text>]]' help create complex rules?",
+          "answer": "'Push[<object_text>_To[<property_text>]]' allows the player to move an object_text block next to a property_text block, which can set up new rules or modify existing ones. This is especially useful for assembling 'IS' statements that change gameplay."
+      },
+      {
+          "question": "What does the rule 'LOVE IS YOU' imply if 'LOVE' is also 'MELT' and it encounters a 'HOT' object?",
+          "answer": "'LOVE IS YOU' makes Love controllable, but if 'LOVE' is also 'MELT' and it touches a 'HOT' object, Love will melt and be destroyed, potentially resulting in game loss if no other 'YOU' objects are available."
+      },
+      {
+          "question": "What effect does 'ROCK IS YOU' have if 'ROCK IS WIN' is also active?",
+          "answer": "With both 'ROCK IS YOU' and 'ROCK IS WIN' active, the player wins immediately by controlling the rock, as it meets the win condition upon activation."
+      },
+      {
+          "question": "Can you use 'Make_Rule[BABA IS STOP]' to trap Baba?",
+          "answer": "Yes, activating 'BABA IS STOP' would trap Baba in place, preventing movement. This could help stabilize text blocks or alignments, but the player would need to deactivate it or use other objects to move forward."
+      },
+      {
+          "question": "How does 'BABA IS WIN' work if the player is already controlling Baba?",
+          "answer": "If the player is controlling Baba and 'BABA IS WIN' becomes active, they win instantly because Baba, as the controlled object, satisfies the win condition without needing to move anywhere."
+      },
+      {
+          "question": "What happens if 'BABA IS YOU' and 'ROCK IS PUSH' are active, and Baba pushes the rock onto lava with 'LAVA IS SINK'?",
+          "answer": "If 'BABA IS YOU' and 'ROCK IS PUSH' are active, and Baba pushes Rock onto Lava with 'LAVA IS SINK', both Rock and Lava will be destroyed, creating an empty space and clearing a path for Baba to continue."
+      },
+      {
+          "question": "What does 'Brake_Rule[WALL IS STOP]' achieve?",
+          "answer": "Breaking 'WALL IS STOP' makes walls passable, allowing the player to move through any wall tiles, which can open up previously restricted areas of the level."
+      },
+      {
+          "question": "What is the effect of combining 'FLAG IS WIN' and 'FLAG IS MOVE'?",
+          "answer": "Combining 'FLAG IS WIN' and 'FLAG IS MOVE' makes the flag a moving win condition. The player must intercept the moving flag to win, which adds a challenge if the flag is moving away or along a path that’s difficult to reach."
+      },
+      {
+          "question": "How can 'LOVE IS YOU' and 'LOVE IS SINK' work together?",
+          "answer": "With 'LOVE IS YOU' and 'LOVE IS SINK' active, Love will sink any objects it touches, including itself if it touches another object. This requires careful navigation to avoid accidental destruction or game loss."
+      },
+      {
+          "question": "How does 'Brake_Rule[ROCK IS MELT]' affect rocks near hot objects?",
+          "answer": "Breaking 'ROCK IS MELT' removes the vulnerability of rocks to hot objects, allowing them to safely interact with or touch hot objects without being destroyed."
+      },
+      {
+          "question": "What does 'Make_Rule[KEKE IS WIN]' do if 'KEKE IS YOU' is also active?",
+          "answer": "Activating 'KEKE IS WIN' while 'KEKE IS YOU' is also active makes Keke both the controlled character and the win condition, so the player wins immediately upon controlling Keke."
+      },
+      {
+          "question": "What is the purpose of 'Push[<object1>_To[<object2>]]'?",
+          "answer": "'Push[<object1>_To[<object2>]]' lets the player move one object towards another, which can be used to position objects for strategic moves, block certain paths, or clear a route. This can only be done if the <object1> IS PUSH"
+      },
+      {
+          "question": "What does 'LAVA IS MELT' and 'LAVA IS HOT' imply when applied to the same object?",
+          "answer": "If 'LAVA IS MELT' and 'LAVA IS HOT' are both active, Lava will destroy itself because it is both HOT and MELT. This results in lava tiles disappearing from the grid."
+      },
+      {
+          "question": "What strategy can be used to avoid destroying a 'MELT' object near a 'HOT' one?",
+          "answer": "To avoid destroying a 'MELT' object near a 'HOT' one, the player can try to brake the MELT HOT ruel"
+      },
+
+      {
+        "question": "What does the rule 'WALL IS STOP' do?",
+        "answer": "The rule 'WALL IS STOP' makes the Wall object impassable. Any object controlled by the player (such as Baba) cannot move through walls."
+      },
+      {
+        "question": "What is the default rule for text tiles?",
+        "answer": "The default rule for text tiles is 'TEXT IS PUSH'. This allows you to push text tiles around the level to form new rules. This rule is always active and can never be broken"
+      },
+      {
+        "question": "How can a rule be considered active?",
+        "answer": "A rule is active when there is at least one object, one verb, and one object or property aligned into a valid syntax. It can be aligned either horizontally or vertically."
+      },
+      {
+        "question": "What happens if a rule says 'BABA IS YOU'?",
+        "answer": "If the rule 'BABA IS YOU' is active, you control Baba. You can move Baba around the level to interact with other objects and try to win."
+      },
+      {
+        "question": "What happens if you make the rule 'ROCK IS FLAG'?",
+        "answer": "If the rule 'ROCK IS FLAG' is active, all Rock objects will be transformed into Flag objects. The Rocks will cease to exist and will be replaced by Flags."
+      },
+      {
+        "question": "How does 'WIN' work in a rule?",
+        "answer": "If an object is set to 'WIN' (e.g., 'FLAG IS WIN'), touching that object with something controlled by you (e.g., Baba) will cause you to win the level."
+      },
+      {
+        "question": "What is the effect of 'MELT' and 'HOT' in combination?",
+        "answer": "Anything set to 'MELT' will be destroyed when it touches an object set to 'HOT'. The object with 'HOT' remains intact, while the 'MELT' object disappears."
+      },
+      {
+        "question": "What happens if 'ICE IS HOT' and 'LAVA IS MELT' are both true?",
+        "answer": "If 'ICE IS HOT' and 'LAVA IS MELT' are both true, touching the Ice with Lava will cause the Lava to melt, while the Ice remains intact."
+      },
+      {
+        "question": "How does 'YOU' work in a rule?",
+        "answer": "'YOU' is an action that makes an object controllable by the player. For example, 'BABA IS YOU' allows the player to control Baba, and 'FLAG IS YOU' would allow the player to control the Flag."
+      },
+      {
+        "question": "What does 'WALL IS WALL' do in a level?",
+        "answer": "'WALL IS WALL' makes the Wall object immutable. It cannot be transformed into another object like Rock or Flag, even if another rule like 'WALL IS ROCK' is present."
+      },
+      {
+        "question": "What happens if 'LAVA IS HOT' and 'BABA IS MELT' are both true?",
+        "answer": "If 'LAVA IS HOT' and 'BABA IS MELT' are both active, Baba will be destroyed upon touching Lava, and the level will reset unless another 'YOU' rule is active."
+      },
+      {
+        "question": "What is the significance of 'IS' in the rules?",
+        "answer": "'IS' acts as the copula in rules. It connects an object to a property or action (e.g., 'BABA IS YOU', 'FLAG IS WIN'), or it can transform one object into another (e.g., 'ROCK IS FLAG')."
+      },
+      {
+        "question": "What happens if 'MOVE' is applied to an object?",
+        "answer": "If 'MOVE' is applied to an object (e.g., 'KEKE IS MOVE'), that object will move one space per turn in the direction it is facing. It will reverse direction when it hits a solid object."
+      },
+      {
+        "question": "What is the effect of 'PUSH' on objects?",
+        "answer": "Objects set to 'PUSH' (e.g., 'ROCK IS PUSH') can be pushed around by the player-controlled object. You can move them to solve puzzles or create new rules."
+      },
+      {
+        "question": "What does 'FLOAT' do to an object?",
+        "answer": "Objects set to 'FLOAT' exist on a separate plane, meaning they won't interact with non-float objects except for those with STOP, PUSH, or PULL properties."
+      },
+      {
+        "question": "What happens if something is both 'HOT' and 'MELT'?",
+        "answer": "If something is both 'HOT' and 'MELT', it will self-destruct. The object will burn up due to its conflicting properties."
+      },
+      {
+        "question": "How does 'PULL' work in a rule?",
+        "answer": "When an object is set to 'PULL' (e.g., 'KEKE IS PULL'), the player-controlled object can pull it by moving away from the object while adjacent to it."
+      },
+      {
+        "question": "How can you make a rule that changes an object into another object?",
+        "answer": "To change an object into another, form a rule in the format '<object> IS <object>' (e.g., 'ROCK IS FLAG'). This will transform all instances of the first object into the second."
+      },
+      {
+        "question": "What means the default 'BORDER IS STOP'?",
+        "answer": "'BORDER IS STOP' is a default rule in the game. It makes the outer edges of the level impassable, preventing any object from moving beyond the game's boundaries and can never be broken."
+      },
+      {
+        "question": "What happens if 'TEXT IS FLOAT' is active?",
+        "answer": "If 'TEXT IS FLOAT' is active, the text objects will float above the ground plane. They will not interact with non-float objects but can still be pushed or manipulated by float objects."
+      },
+      {
+        "question": "How do 'HOT' and 'MELT' interact with 'YOU'?",
+        "answer": "Objects with 'HOT' and 'MELT' properties do not directly affect 'YOU'. However, if an object controlled by the player (e.g., Baba) is set to 'MELT' and touches something 'HOT', the controlled object will be destroyed."
+      },
+      {
+        "question": "What happens when 'FLAG IS YOU' and 'BABA IS YOU' are both active?",
+        "answer": "If both 'FLAG IS YOU' and 'BABA IS YOU' are active, you will control both the Flag and Baba at the same time, moving them together."
+      },
+      {
+        "question": "What happens when 'BABA IS WIN' and 'BABA IS YOU' is active?",
+        "answer": "If 'BABA IS WIN' is active, you win the level immediately because Baba is both controlled by you ('YOU') and the win condition ('WIN')."
+      },
+      {
+        "question": "How do 'STOP' and 'PUSH' interact with each other?",
+        "answer": "Normally, 'STOP' makes an object impassable, but if an object is also set to 'PUSH', the player-controlled object can push it, overriding the blocking nature of 'STOP'."
+      },
+      {
+        "question": "What happens if 'TEXT IS STOP' is active?",
+        "answer": "If 'TEXT IS STOP' is active, text tiles will not become impassable. You will be able to push text objects, because 'TEXT IS PUSH' which is always active overrides the blocking nature of 'STOP'."
+      },
+      {
+        "question": "How do you prevent an object from being transformed into another object?",
+        "answer": "You can prevent an object from being transformed by using the rule '<object> IS <object>' (e.g., 'WALL IS WALL'). This makes the object immutable, so it can't be changed by other rules."
+      },
+      {
+        "question": "What happens when 'KEKE IS MOVE' and 'KEKE IS YOU' are both true?",
+        "answer": "If 'KEKE IS MOVE' and 'KEKE IS YOU' are both true, Keke will move automatically according to the 'MOVE' rule, but you will still be able to control Keke's movements as well so you make two steps add at on turn"
+      },
+      {
+        "question": "What happens when 'WALL IS PUSH' is active?",
+        "answer": "If 'WALL IS PUSH' is active, you will be able to push the Wall object around, which would normally be immovable due to its solid nature."
+      },
+      {
+        "question": "What does default rule 'TEXT IS PUSH' allow you to do?",
+        "answer": "'TEXT IS PUSH' allows you to push text tiles around the grid. This is how you can manipulate the words in the level to create new rules this rule is always active without any text saying so."
+      },
+      {
+        "question": "How does 'PUSH' affect the interaction of objects with 'STOP'?",
+        "answer": "If an object is set to both 'PUSH' and 'STOP', the player-controlled object can still push it despite its blocking nature."
+      },
+    
+      {
+        "question": "What does the rule 'WALL IS STOP' do?",
+        "answer": "The rule 'WALL IS STOP' makes the Wall object impassable. Any object controlled by the player cannot move through walls."
+      },
+      {
+        "question": "What is the default rule for text tiles?",
+        "answer": "The default rule for text tiles is 'TEXT IS PUSH'. This allows you to push text objects around the level to form new rules and is always active without text saying so."
+      },
+      {
+        "question": "How can a rule be considered active?",
+        "answer": "A rule is active when there is at least one object, one verb, and one object or property aligned into a valid syntax. It can be aligned either horizontally or vertically."
+      },
+      {
+        "question": "What happens if a rule says 'BABA IS YOU'?",
+        "answer": "If the rule 'BABA IS YOU' is active, you control Baba. You can move Baba around the level to interact with other objects and try to win."
+      },
+      {
+        "question": "What happens if you make the rule 'ROCK IS FLAG'?",
+        "answer": "If the rule 'ROCK IS FLAG' is active, all Rock objects will be transformed into Flag objects. The Rocks will cease to exist and will be replaced by Flags."
+      },
+      {
+        "question": "How does 'WIN' work in a rule?",
+        "answer": "If an object is set to 'WIN' (e.g., 'FLAG IS WIN'), touching that object with something controlled by you (e.g., Baba) will cause you to win the level."
+      },
+      {
+        "question": "What is the effect of 'MELT' and 'HOT' in combination?",
+        "answer": "Anything set to 'MELT' will be destroyed when it touches an object set to 'HOT'. The object with 'HOT' remains intact, while the 'MELT' object disappears."
+      },
+      {
+        "question": "What happens if 'ICE IS HOT' and 'LAVA IS MELT' are both true?",
+        "answer": "If 'ICE IS HOT' and 'LAVA IS MELT' are both true, touching the Ice with Lava will cause the Lava to melt, while the Ice remains intact."
+      },
+      {
+        "question": "How does 'YOU' work in a rule?",
+        "answer": "'YOU' is an action that makes an object controllable by the player. For example, 'BABA IS YOU' allows the player to control Baba, and 'FLAG IS YOU' would allow the player to control the Flag."
+      },
+      {
+        "question": "What does 'WALL IS WALL' do in a level?",
+        "answer": "'WALL IS WALL' makes the Wall object immutable. It cannot be transformed into another object like Rock or Flag, even if another rule like 'WALL IS ROCK' is present."
+      },
+      {
+        "question": "What happens if 'LAVA IS HOT' and 'BABA IS MELT' are both true?",
+        "answer": "If 'LAVA IS HOT' and 'BABA IS MELT' are both active, Baba will be destroyed upon touching Lava, and the level will reset unless another 'YOU' rule is active."
+      },
+      {
+        "question": "What is the significance of 'IS' in the rules?",
+        "answer": "'IS' acts as the copula in rules. It connects an object to a property or action (e.g., 'BABA IS YOU', 'FLAG IS WIN'), or it can transform one object into another (e.g., 'ROCK IS FLAG')."
+      },
+      {
+        "question": "What happens if 'MOVE' is applied to an object?",
+        "answer": "If 'MOVE' is applied to an object (e.g., 'KEKE IS MOVE'), that object will move one space per turn in the direction it is facing. It will reverse direction when it hits a solid object."
+      },
+      {
+        "question": "What is the effect of 'PUSH' on objects?",
+        "answer": "Objects set to 'PUSH' (e.g., 'ROCK IS PUSH') can be pushed around by the player-controlled object. You can move them to solve puzzles or create new rules."
+      },
+      {
+        "question": "What does 'FLOAT' do to an object?",
+        "answer": "Objects set to 'FLOAT' exist on a separate plane, meaning they won't interact with non-float objects except for those with STOP, PUSH, or PULL properties."
+      },
+      {
+        "question": "What happens if something is both 'HOT' and 'MELT'?",
+        "answer": "If something is both 'HOT' and 'MELT', it will self-destruct. The object will burn up due to its conflicting properties."
+      },
+      {
+        "question": "How does 'PULL' work in a rule?",
+        "answer": "When an object is set to 'PULL' (e.g., 'KEKE IS PULL'), the player-controlled object can pull it by moving away from the object while adjacent to it."
+      },
+      {
+        "question": "How can you make a rule that changes an object into another object?",
+        "answer": "To change an object into another, form a rule in the format '<object> IS <object>' (e.g., 'ROCK IS FLAG'). This will transform all instances of the first object into the second."
+      },
+      {
+        "question": "What means default rule 'BORDER IS STOP'?",
+        "answer": "'BORDER IS STOP' is a default rule in the game. It makes the outer edges of the level impassable, preventing any object from moving beyond the game's boundaries. This rule is always active and can not be broken"
+      },
+      {
+        "question": "What happens if 'TEXT IS FLOAT' is active?",
+        "answer": "If 'TEXT IS FLOAT' is active, the text objects will float above the ground plane. They will not interact with non-float objects but can still be pushed or manipulated by float objects."
+      },
+      {
+        "question": "How do 'HOT' and 'MELT' interact with 'YOU'?",
+        "answer": "Objects with 'HOT' and 'MELT' properties do not directly affect 'YOU'. However, if an object controlled by the player (e.g., Baba) is set to 'MELT' and touches something 'HOT', the controlled object will be destroyed."
+      },
+
+      {
+        "question": "What are the default rules in 'Baba Is You'?",
+        "answer": "The default rules in 'Baba Is You' are 'TEXT IS PUSH' and 'BORDER IS STOP'. 'TEXT IS PUSH' allows you to push text objects, and 'BORDER IS STOP' prevents you from moving beyond the outer boundaries of the level."
+      },
+
+      {
+        "question": "How do default rules like 'TEXT IS PUSH' and 'BORDER IS STOP' work in 'Baba Is You', and why can't they be broken?",
+        "answer": "Default rules like 'TEXT IS PUSH' and 'BORDER IS STOP' are always present, even though they aren't visible as text in the level. They cannot be broken or changed by any rule manipulation. 'TEXT IS PUSH' allows you to move text objects around, and 'BORDER IS STOP' makes the outer edges of the level impassable, ensuring that you can't push objects out of bounds."
+      },
+
+      {
+        "question": "What does each character represent in 'Baba Is You' level grids?",
+        "answer": "In 'Baba Is You' level grids, each character represents an object or a word. Here is the mapping: '_' = 'border', '.' = 'empty', 'b' = 'baba_obj', 'B' = 'baba_word', '1' = 'is_word', '2' = 'you_word', '3' = 'win_word', 's' = 'skull_obj', 'S' = 'skull_word', 'f' = 'flag_obj', 'F' = 'flag_word', 'o' = 'floor_obj', 'O' = 'floor_word', 'a' = 'grass_obj', 'A' = 'grass_word', '4' = 'kill_word', 'l' = 'lava_obj', 'L' = 'lava_word', '5' = 'push_word', 'r' = 'rock_obj', 'R' = 'rock_word', '6' = 'stop_word', 'w' = 'wall_obj', 'W' = 'wall_word', '7' = 'move_word', '8' = 'hot_word', '9' = 'melt_word', 'k' = 'keke_obj', 'K' = 'keke_word', 'g' = 'goop_obj', 'G' = 'goop_word', '0' = 'sink_word', 'v' = 'love_obj', 'V' = 'love_word'."
+      },
+
+      {
+        "question": "What is the difference between an object and a word in 'Baba Is You'?",
+        "answer": "In 'Baba Is You', an object refers to something physical in the level that can be interacted with, like 'baba_obj' (Baba), 'flag_obj' (Flag), or 'wall_obj' (Wall). These are the entities you control or interact with in the environment. A word refers to the text tiles that represent objects or properties, such as 'baba_word' (BABA), 'flag_word' (FLAG), or 'is_word' (IS). Words are used to create rules that change how objects behave in the game. For example, combining the words 'BABA IS YOU' lets you control Baba."
+      },
+
+      {
+        "question": "What is the primary objective in 'Baba Is You'?",
+        "answer": "The primary objective is to manipulate the rules of the game by rearranging word blocks to reach the 'Win' condition."
+      },
+      {
+        "question": "What does the phrase 'Baba Is You' mean in the game?",
+        "answer": "'Baba Is You' means the player controls the character Baba. If this rule is broken, the player loses control of Baba."
+      },
+      {
+        "question": "What happens if the 'Flag Is Win' rule is removed?",
+        "answer": "If 'Flag Is Win' is removed, touching the flag will no longer result in a win condition."
+      },
+      {
+        "question": "How can you make another object controllable in the game?",
+        "answer": "You can make another object controllable by creating a rule like 'Rock Is You' or 'Wall Is You'."
+      },
+      {
+        "question": "What happens if there are no 'You' objects in the game?",
+        "answer": "If there are no 'You' objects, the game ends because there is nothing for the player to control."
+      },
+      {
+        "question": "What is the function of the 'Push' property?",
+        "answer": "The 'Push' property allows an object to be pushed by the player or other controllable objects."
+      },
+      {
+        "question": "How can you make an object immovable?",
+        "answer": "You can make an object immovable by assigning it the 'Stop' property, such as 'Wall Is Stop'."
+      },
+      {
+        "question": "What does the 'Sink' property do to objects?",
+        "answer": "The 'Sink' property causes any object that overlaps with it to disappear, including the 'Sink' object itself."
+      },
+      {
+        "question": "What happens if you create the rule 'Baba Is Win'?",
+        "answer": "If you create the rule 'Baba Is Win', the player immediately wins because they are controlling the 'Win' object."
+      },
+      {
+        "question": "Can you give an example of how to bypass a locked door in the game?",
+        "answer": "To bypass a locked door, you can change the rules, such as transforming the door into a controllable object with 'Door Is You' or removing its 'Stop' property with 'Door Is Not Stop'."
+      },
+      {
+        "question": "What strategy can you use if the key is out of reach?",
+        "answer": "If the key is out of reach, you can modify the rules to bring it closer, such as 'Key Is Move' to make it move automatically or 'Wall Is Push' to clear a path."
+      },
+      {
+        "question": "How can you create a win condition if no 'Win' object exists on the map?",
+        "answer": "If no 'Win' object exists, you can turn an existing object into a win condition by creating a rule like 'Rock Is Win' or 'Wall Is Win'."
+      },
+
+      {
+        "question": "Can you explain the interaction between 'Ice Is Melt' and 'Lava Is Hot'?",
+        "answer": "If 'Ice Is Melt' and 'Lava Is Hot', ice will disappear when it touches lava because lava causes melting."
+      },
+      {
+        "question": "What happens if you create the rule 'Wall Is You'?",
+        "answer": "If you create the rule 'Wall Is You', the player will control all wall objects on the map."
+      },
+      {
+        "question": "How can you undo a move if you accidentally break an important rule?",
+        "answer": "You can undo a move by pressing the undo button (usually 'Z' on a keyboard or the equivalent button on a controller)."
+      },
+
+      {
+        "question": "What is the effect of 'Baba Is Move'?",
+        "answer": "'Baba Is Move' makes Baba move automatically in a straight line until stopped by an obstacle or rule change."
+      },
+
+      {
+        "question": "What happens if 'BABA IS WIN' is added to the rules when BABA IS YOU is also active?",
+        "answer": "If 'BABA IS WIN' is added, the player wins immediately since the object they control (Baba) is also the win condition."
+      },
+      {
+        "question": "How does 'ROCK IS STOP' affect gameplay?",
+        "answer": "'ROCK IS STOP' makes rocks impassable, meaning the player and other objects cannot move through or onto tiles occupied by rocks."
+      },
+      {
+        "question": "What is the effect of 'SKULL IS KILL'?",
+        "answer": "'SKULL IS KILL' causes the player to lose if they touch a skull, as it destroys the player-controlled object on contact."
+      },
+      {
+        "question": "How do 'LAVA IS HOT' and 'KEKE IS MELT' interact?",
+        "answer": "If 'LAVA IS HOT' and 'KEKE IS MELT', Keke will be destroyed when it touches lava, while other objects not marked as 'MELT' remain unaffected."
+      },
+      {
+        "question": "What happens when 'WALL IS MOVE' is active?",
+        "answer": "When 'WALL IS MOVE' is active, all walls move one tile in their facing direction per player turn, potentially altering the layout dynamically."
+      },
+      {
+        "question": "Explain the interaction between 'ROCK IS SINK' and the player.",
+        "answer": "If 'ROCK IS SINK' is active, any object that overlaps with a rock, including the player, will be destroyed along with the rock itself."
+      },
+      {
+        "question": "What does 'FLAG IS WIN' do in the game?",
+        "answer": "'FLAG IS WIN' designates the flag as the win condition, meaning the player wins the level if they touch the flag."
+      },
+      {
+        "question": "How does 'GRASS IS PUSH' change the behavior of grass?",
+        "answer": "'GRASS IS PUSH' makes grass tiles movable by the player or other objects that can push, allowing grass to be repositioned."
+      },
+      {
+        "question": "Can an object have multiple properties simultaneously? Give an example.",
+        "answer": "Yes, an object can have multiple properties. For example, 'ROCK IS PUSH AND SINK' makes rocks movable but causes them to sink and destroy objects they touch."
+      },
+      {
+        "question": "What happens if 'BABA IS MELT' and 'LOVE IS HOT' are both active?",
+        "answer": "If 'BABA IS MELT' and 'LOVE IS HOT', Baba will be destroyed upon touching Love, as Baba is vulnerable to heat."
+      },
+      {
+        "question": "What is the result of creating the rule 'FLAG IS YOU'?",
+        "answer": "If 'FLAG IS YOU' is created, the player gains control of the flag instead of Baba, allowing the flag to be moved around the grid."
+      },
+      {
+        "question": "How can you make an object both impassable and movable?",
+        "answer": "To make an object both impassable and movable, you can assign conflicting rules like 'WALL IS STOP AND MOVE', causing it to block movement while also moving each turn."
+      },
+      {
+        "question": "What does 'LOVE IS YOU' allow the player to do?",
+        "answer": "'LOVE IS YOU' allows the player to control the Love object, moving it around the grid instead of Baba or any other object."
+      },
+      {
+        "question": "What happens if an object is both 'HOT' and 'MELT'?",
+        "answer": "If an object is both 'HOT' and 'MELT', it will self-destruct immediately because it interacts with its own properties."
+      },
+      {
+        "question": "How does 'LAVA IS SINK' interact with other objects?",
+        "answer": "If 'LAVA IS SINK', any object that moves into lava, including the player, will be destroyed along with the lava tile."
+      },
+      {
+        "question": "What strategy can you use to cross a 'WALL IS STOP' barrier?",
+        "answer": "To cross a 'WALL IS STOP' barrier, you can change the rule to remove 'STOP', such as creating 'WALL IS PUSH' or 'WALL IS NOT STOP'."
+      },
+      {
+        "question": "What is the purpose of the 'IS' block in the game?",
+        "answer": "The 'IS' block connects objects with properties, such as 'BABA IS YOU' or 'ROCK IS PUSH', to define their behaviors and interactions."
+      },
+      {
+        "question": "What happens if 'BABA IS YOU' is broken by moving text blocks?",
+        "answer": "If 'BABA IS YOU' is broken, the player loses control of Baba and the game ends, as there is no 'YOU' object to control."
+      },
+
+      {
+        "question": "What does the character '_' represent in the grid?",
+        "answer": "The character '_' represents a border, which acts as the boundary of the level and cannot be crossed or pushed."
+      },
+      {
+        "question": "What does the character '.' represent in the grid?",
+        "answer": "The character '.' represents an empty space in the grid, which objects and text blocks can move into."
+      },
+      {
+        "question": "What does the character 'B' represent as a text block in the game?",
+        "answer": "The character 'B' as a text block represents the word 'BABA', referring to the Baba object."
+      },
+      {
+        "question": "What does the character 'b' represent in the grid?",
+        "answer": "The character 'b' represents the Baba object, which can be controlled by the player if the rule 'BABA IS YOU' is active."
+      },
+      {
+        "question": "What does the character '1' represent as a text block in the game?",
+        "answer": "The character '1' as a text block represents the word 'IS', which is used to connect objects and properties to form rules."
+      },
+      {
+        "question": "What is the function of the text block '2'?",
+        "answer": "The text block '2' represents 'YOU', indicating the object the player controls when used in a rule like '<object_text> IS YOU'."
+      },
+      {
+        "question": "What is the meaning of the character 's' in the grid?",
+        "answer": "The character 's' represents the Skull object, which can interact with properties like 'KILL' or 'STOP' depending on the rules."
+      },
+      {
+        "question": "How is the text block '3' used in rules?",
+        "answer": "The text block '3' represents 'WIN', setting an object as the win condition in rules like '<object_text> IS WIN'."
+      },
+      {
+        "question": "What does the character 'l' represent in the grid?",
+        "answer": "The character 'l' represents the Lava object, which can have properties like 'HOT' or 'SINK' based on the active rules."
+      },
+      {
+        "question": "What is a valid rule structure in the game?",
+        "answer": "A valid rule has one of the following structures: '<object_text> IS <property_text>', '<object1_text> IS <object2_text>', or '<object1_text> IS <object1_text>'."
+      },
+      {
+        "question": "What happens if text blocks do not form a valid rule?",
+        "answer": "If text blocks do not form a valid rule, they have no effect on the gameplay and are treated as regular movable objects."
+      },
+      {
+        "question": "What does 'F' as a text block represent?",
+        "answer": "'F' as a text block represents 'FLAG', referring to the flag object in the game."
+      },
+      {
+        "question": "What does 'f' represent in the grid?",
+        "answer": "'f' represents the Flag object, which often acts as a win condition if the rule 'FLAG IS WIN' is active."
+      },
+      {
+        "question": "What does the text block '8' mean in the game?",
+        "answer": "The text block '8' represents 'HOT', a property that causes objects with the 'MELT' property to be destroyed when they touch it."
+      },
+      {
+        "question": "What does the character 'w' represent in the grid?",
+        "answer": "'w' represents the Wall object, which is typically impassable if the rule 'WALL IS STOP' is active."
+      },
+      {
+        "question": "What does the text block '4' signify?",
+        "answer": "The text block '4' represents 'KILL', a property that destroys the player-controlled object upon contact."
+      },
+      {
+        "question": "What does the rule 'ROCK IS SINK' do?",
+        "answer": "'ROCK IS SINK' causes rocks to destroy themselves and any object that touches them."
+      },
+      {
+        "question": "What happens when the rule 'KEKE IS MOVE' is active?",
+        "answer": "When 'KEKE IS MOVE' is active, all Keke objects move one step in their facing direction each turn."
+      },
+      {
+        "question": "What does the character 'v' represent in the grid?",
+        "answer": "The character 'v' represents the Love object, which can have properties and rules applied to it, such as 'LOVE IS WIN'."
+      },
+      {
+        "question": "How can the rule '<object1_text> IS <object2_text>' be used?",
+        "answer": "The rule '<object1_text> IS <object2_text>' transforms all objects of type <object1> into objects of type <object2>."
+      },
+      {
+        "question": "What does the text block '9' represent?",
+        "answer": "The text block '9' represents 'MELT', a property that causes objects to be destroyed when they touch something 'HOT'."
+      },
+      {
+        "question": "What does the rule '<object1_text> IS <object1_text>' imply?",
+        "answer": "The rule '<object1_text> IS <object1_text>' reinforces the identity of the object, ensuring it retains its original form regardless of other transformations."
+      },
+      {
+        "question": "What happens if 'ROCK IS YOU' is active?",
+        "answer": "If 'ROCK IS YOU' is active, the player gains control of all Rock objects and can move them around the grid."
+      },
+      {
+        "question": "What is the significance of the rule 'LAVA IS HOT'?",
+        "answer": "'LAVA IS HOT' makes lava capable of destroying objects with the 'MELT' property upon contact."
+      },
+      {
+        "question": "How do you create a new rule in the game?",
+        "answer": "You can create a new rule by pushing text blocks to align them horizontally or vertically to form a valid rule structure."
+      },
+
+      {
+        "question": "What does the character 'o' represent in the grid?",
+        "answer": "The character 'o' represents the Floor object, which can interact with rules to change its behavior, such as 'FLOOR IS STOP' or 'FLOOR IS WIN'."
+      },
+      {
+        "question": "What is the significance of the character 'a' in the grid?",
+        "answer": "The character 'a' represents the Grass object, which can have various properties applied, such as 'GRASS IS PUSH' to make it movable."
+      },
+      {
+        "question": "What does the character 'k' stand for in the grid?",
+        "answer": "The character 'k' represents the Keke object, which can be controlled if 'KEKE IS YOU' is active or assigned other properties like 'KEKE IS MOVE'."
+      },
+      {
+        "question": "What does the character 'g' signify in the grid?",
+        "answer": "The character 'g' represents the Goop object, which can interact with rules to gain properties like 'GOOP IS SINK' or 'GOOP IS KILL'."
+      },
+      {
+        "question": "How does the character 'v' behave in the grid?",
+        "answer": "The character 'v' represents the Love object, which can be assigned properties such as 'LOVE IS WIN' to make it the goal or 'LOVE IS MOVE' to make it move autonomously."
+      },
+      {
+        "question": "What does the character 'r' represent in the grid?",
+        "answer": "The character 'r' represents the Rock object, often used in puzzles where it can be pushed ('ROCK IS PUSH') or transformed ('ROCK IS LAVA')."
+      },
+      {
+        "question": "What role does the character 's' play in the grid?",
+        "answer": "The character 's' represents the Skull object, commonly associated with 'SKULL IS KILL' to act as an obstacle that destroys player-controlled objects on contact."
+      },
+      {
+        "question": "What does the character 'l' represent in the grid?",
+        "answer": "The character 'l' represents the Lava object, frequently associated with 'LAVA IS HOT', making it dangerous to objects with the 'MELT' property."
+      },
+      {
+        "question": "What is the function of the character 'f' in the grid?",
+        "answer": "The character 'f' represents the Flag object, which is often the goal of a level if the rule 'FLAG IS WIN' is active."
+      },
+      {
+        "question": "What does the character 'w' indicate in the grid?",
+        "answer": "The character 'w' represents the Wall object, often used as an obstacle when 'WALL IS STOP' is active."
+      },
+      {
+        "question": "How can the character 'b' interact in the grid?",
+        "answer": "The character 'b' represents the Baba object, which is typically controlled by the player when 'BABA IS YOU' is active, allowing it to interact with other objects."
+      },
+      {
+        "question": "What does the character '._' represent in the grid?",
+        "answer": "The character '._' represents an empty space in the grid, which is not an object but can be occupied by objects or text blocks."
+      },
+      {
+        "question": "Can the characters in the grid change roles during the game?",
+        "answer": "Yes, characters in the grid can change roles by modifying rules. For example, 'ROCK IS FLAG' transforms all Rock objects into Flag objects."
+      },
+      {
+        "question": "What happens if an object, like 's' (Skull), is assigned 'YOU'?",
+        "answer": "If 'SKULL IS YOU' is active, the player controls the Skull objects instead of any other previously controlled object."
+      },
+      {
+        "question": "Can text blocks like 'B' or '1' interact with the grid objects?",
+        "answer": "Text blocks can be pushed into the grid and used to create or modify rules, but they are not affected by properties like 'KILL' or 'HOT' unless 'TEXT IS YOU' or similar rules are active."
+      },
+      {
+        "question": "What happens if multiple objects share the 'YOU' property, such as 'BABA IS YOU' and 'KEKE IS YOU'?",
+        "answer": "If multiple objects share the 'YOU' property, the player controls all of them simultaneously, moving them in the same direction with each input."
+      },
+      {
+        "question": "What does 'BABA IS ROCK' do to the grid objects?",
+        "answer": "'BABA IS ROCK' transforms all Baba objects ('b') into Rock objects ('r'), removing the player’s control of Baba unless 'ROCK IS YOU' is also active."
+      },
+      {
+        "question": "What role does the character 'o' (Floor) typically play in a level?",
+        "answer": "The Floor ('o') often serves as a neutral or passive object, but it can gain importance if rules like 'FLOOR IS WIN' or 'FLOOR IS SINK' are created."
+      },
+      {
+        "question": "How do objects in the grid interact with the property 'PUSH'?",
+        "answer": "If an object like 'r' (Rock) has the rule 'ROCK IS PUSH', it can be moved by the player or other moving objects, provided the path is not blocked."
+      },
+      {
+        "question": "What happens if 'LOVE IS YOU' is active and 'BABA IS YOU' is removed?",
+        "answer": "If 'LOVE IS YOU' becomes active and 'BABA IS YOU' is removed, the player loses control of Baba and gains control of Love objects ('v')."
+      },
+
+      {
+        "question": "What does the action 'Move_To[<object>]' mean?",
+        "answer": "'Move_To[<object>]' means moving the object controlled by the player to the specified <object> in the grid. This action is only valid if the specified <object> is present in the level."
+      },
+      {
+        "question": "When can the action 'Move_To[<object_text>]' be taken?",
+        "answer": "The action 'Move_To[<object_text>]' can be taken only if the specified <object_text> is present in the grid level."
+      },
+      {
+        "question": "What does 'Brake_Rule[<object_text> IS <property_text>]' do?",
+        "answer": "'Brake_Rule[<object_text> IS <property_text>]' removes the property of the object by breaking the rule '<object_text> IS <property_text>'. This action requires that the rule is active and the <property_text> and IS text block are both present in the grid."
+      },
+      {
+        "question": "What happens when you perform 'Brake_Rule[<object1_text> IS <object2_text>]'?",
+        "answer": "When you perform 'Brake_Rule[<object1_text> IS <object2_text>]', nothing happens immediately after breaking the rule, but it disables the transformation of object1 into object2."
+      },
+      {
+        "question": "What is the effect of 'Brake_Rule[<object1_text> IS <object1_text>]'?",
+        "answer": "'Brake_Rule[<object1_text> IS <object1_text>]' makes the object mutable again, allowing it to change properties or behavior."
+      },
+      {
+        "question": "How does the action 'Make_Rule[<object_text> IS <property_text>]' work?",
+        "answer": "'Make_Rule[<object_text> IS <property_text>]' creates a rule that assigns a property to an object, such as 'BABA IS YOU'. This action requires the <property_text>, IS, and <object_text> blocks to all be present in the grid."
+      },
+      {
+        "question": "What does 'Make_Rule[<object1_text> IS <object2_text>]' do?",
+        "answer": "'Make_Rule[<object1_text> IS <object2_text>]' creates a rule that transforms all objects of type <object1> into objects of type <object2>."
+      },
+      {
+        "question": "What is the purpose of 'Push[<object_text>_To[<property_text>]'?",
+        "answer": "'Push[<object_text>_To[<property_text>]' means pushing an <object_text> text block towards a <property_text> text block using the object controlled by the player. This action is valid only if both text blocks are present and not placed against the border."
+      },
+      {
+        "question": "What does the action 'Push[<object1>_To[<object2>]' involve?",
+        "answer": "'Push[<object1>_To[<object2>]' involves pushing an object1 towards object2 using the player-controlled object. This is valid only if object1 is set to 'PUSH' and both objects are present in the grid."
+      },
+      {
+        "question": "Can you explain 'Push[<property1_text>_To[<property2_text>]'?",
+        "answer": "'Push[<property1_text>_To[<property2_text>]' involves pushing a <property1_text> text block towards a <property2_text> text block using the player-controlled object. Both blocks must be present in the grid and not placed against the border."
+      },
+      {
+        "question": "What is required for 'Make_Rule[<object1_text> IS <object1_text>]'?",
+        "answer": "'Make_Rule[<object1_text> IS <object1_text>]' requires the <object1_text> to be present twice in the grid along with an IS text block. This rule makes the object immutable."
+      },
+      {
+        "question": "What happens if 'Brake_Rule[<object_text> IS <property_text>]' is performed?",
+        "answer": "If 'Brake_Rule[<object_text> IS <property_text>]' is performed, the <object_text> loses the property defined by <property_text>, altering its behavior in the grid."
+      },
+      {
+        "question": "What are the conditions for taking the action 'Move_To[<property_text>]'?",
+        "answer": "The action 'Move_To[<property_text>]' can only be taken if the specified <property_text> is present in the grid level."
+      },
+      {
+        "question": "How does the player use 'Push[<object_text>_To[<property_text>]' effectively?",
+        "answer": "To use 'Push[<object_text>_To[<property_text>]' effectively, ensure both text blocks are present in the grid and not placed against the border. Then, use the player-controlled object to align and push them together."
+      },
+      {
+        "question": "What is the result of 'Make_Rule[<object1_text> IS <object2_text>]'?",
+        "answer": "The result of 'Make_Rule[<object1_text> IS <object2_text>]' is that all objects of type <object1> in the grid are transformed into objects of type <object2>."
+      },
+      {
+        "question": "What limitations exist for the action 'Push[<property1_text>_To[<property2_text>]'?",
+        "answer": "The action 'Push[<property1_text>_To[<property2_text>]' is limited to cases where both text blocks are not against the border and are present in the grid."
+      },
+      {
+        "question": "What does 'Brake_Rule[<object1_text> IS <object2_text>]' prevent?",
+        "answer": "'Brake_Rule[<object1_text> IS <object2_text>]' prevents further transformation of <object1> into <object2> by removing the rule."
+      },
+      {
+        "question": "When would you use 'Move_To[<object>]'?",
+        "answer": "'Move_To[<object>]' is used when the player needs to position their controlled object next to a specific object in the grid to interact with it or affect a rule."
+      },
+
+      {
+        "question": "How can you identify a text block in the grid?",
+        "answer": "Text blocks are represented by uppercase letters or numbers, such as 'B' for BABA or '1' for IS. These blocks can be pushed to form or break rules."
+      },
+      {
+        "question": "What is the difference between an object and a text block in the grid?",
+        "answer": "Objects represent physical entities in the game (e.g., 'b' for Baba or 'f' for Flag), while text blocks (e.g., 'B' or '3') are used to form rules that define the properties or behaviors of objects."
+      },
+      {
+        "question": "How do you determine if a rule is active in the grid?",
+        "answer": "A rule is active if the relevant text blocks are aligned horizontally or vertically in the form '<object_text> IS <property_text>' or '<object1_text> IS <object2_text>'."
+      },
+      {
+        "question": "What does an empty space ('.') indicate in the grid?",
+        "answer": "An empty space ('.') indicates a free tile where objects or text blocks can move into or occupy."
+      },
+      {
+        "question": "What does a border ('_') signify in the grid?",
+        "answer": "A border ('_') represents the edge of the level and cannot be crossed by any object or text block."
+      },
+      {
+        "question": "How can you determine which object the player controls?",
+        "answer": "The player controls the object defined by the rule '<object_text> IS YOU'. For example, if 'BABA IS YOU' is active, the player controls Baba."
+      },
+      {
+        "question": "How do you know what the winning condition of a level is?",
+        "answer": "The winning condition is defined by a rule '<object_text> IS WIN'. For example, if 'FLAG IS WIN' is active, reaching a Flag object completes the level."
+      },
+      {
+        "question": "What does it mean if an object is impassable?",
+        "answer": "An object is impassable if the rule '<object_text> IS STOP' is active, meaning neither the player-controlled object nor other movable objects can pass through it."
+      },
+      {
+        "question": "How can you identify objects that are dangerous to the player?",
+        "answer": "Objects are dangerous if '<object_text> IS KILL' is active. Touching such an object will destroy the player-controlled object."
+      },
+      {
+        "question": "What happens when a rule like '<object_text> IS MELT' is active?",
+        "answer": "When '<object_text> IS MELT' is active, the specified object will be destroyed if it touches another object that is defined as 'HOT' (e.g., 'LAVA IS HOT')."
+      },
+      {
+        "question": "What does it mean if a rule like '<object_text> IS SINK' is active?",
+        "answer": "When '<object_text> IS SINK' is active, the specified object will destroy itself and anything that moves onto its tile, including player-controlled objects."
+      },
+      {
+        "question": "How can you interpret a rule like '<object1_text> IS <object2_text>'?",
+        "answer": "A rule like '<object1_text> IS <object2_text>' transforms all objects of type <object1> into objects of type <object2>."
+      },
+      {
+        "question": "How do you know if an object can be pushed?",
+        "answer": "An object can be pushed if the rule '<object_text> IS PUSH' is active. This allows the player or other moving objects to push it into adjacent tiles."
+      },
+      {
+        "question": "What does it mean if a rule like '<object_text> IS MOVE' is active?",
+        "answer": "If '<object_text> IS MOVE' is active, the specified object will move automatically in its current facing direction after each turn taken by the player."
+      },
+      {
+        "question": "What should you do if a critical text block is placed against the border?",
+        "answer": "If a critical text block is against the border, you need to find a way to move adjacent blocks to pull or push it into the grid, making it usable for rule creation."
+      },
+      {
+        "question": "What happens if two rules conflict in the grid, like 'BABA IS YOU' and 'SKULL IS YOU'?",
+        "answer": "If two 'YOU' rules are active simultaneously, the player controls both objects ('Baba' and 'Skull') at the same time, moving them together in the same direction."
+      },
+      {
+        "question": "How can you identify mutable objects in the grid?",
+        "answer": "Objects are mutable unless they are defined by a rule like '<object_text> IS <object_text>' (e.g., 'ROCK IS ROCK'), which makes them immutable and prevents transformations."
+      },
+      {
+        "question": "What does the grid indicate if multiple objects overlap on a single tile?",
+        "answer": "When multiple objects overlap, the grid displays only the topmost object. However, all objects on the tile can still interact based on active rules."
+      },
+      {
+        "question": "What is the significance of a horizontal or vertical alignment of text blocks?",
+        "answer": "Horizontal or vertical alignment of text blocks determines whether a rule is active. Misaligned text blocks (e.g., 'BABA IS YOU' with 'YOU' not aligned) do not activate the rule."
+      },
+      {
+        "question": "What is the role of text blocks like 'IS' in the grid?",
+        "answer": "Text blocks like 'IS' are connectors that form rules when aligned with an <object_text> and a <property_text> or another <object_text>."
+      },
+      {
+        "question": "How can you interpret the absence of a rule like '<object_text> IS STOP'?",
+        "answer": "If '<object_text> IS STOP' is absent, the object can be moved through or pushed by other objects or text blocks, depending on other active rules."
+      },
+      {
+        "question": "What does a text block like 'YOU' signify in the grid?",
+        "answer": "The text block 'YOU' signifies control. Any object linked to 'YOU' via a rule (e.g., 'BABA IS YOU') becomes the player-controlled object."
+      },
+      {
+        "question": "What is the significance of 'WIN' in the grid?",
+        "answer": "'WIN' indicates the goal of the level. Touching an object with the 'WIN' property completes the level for the player-controlled object."
+      },
+      {
+        "question": "What does the presence of 'STOP' in a rule mean for object movement?",
+        "answer": "'STOP' prevents any object, including the player-controlled one, from moving onto the tile occupied by the object with this property."
+      },
+
+      {
+        "question": "What does the '_' character represent in the grid?",
+        "answer": "The '_' character represents the border of the level. Objects or text blocks cannot move beyond this border."
+      },
+      {
+        "question": "What does the '.' character indicate in the grid?",
+        "answer": "The '.' character represents an empty space in the grid. Objects or text blocks can move into this space."
+      },
+      {
+        "question": "What does the character 'B' represent in the grid?",
+        "answer": "The character 'B' is a text block for 'BABA', which can be used to form rules about the object Baba."
+      },
+      {
+        "question": "What does the character 'S' represent in the grid?",
+        "answer": "The character 'S' is a text block for 'SKULL', which can be used to form rules about the object Skull."
+      },
+      {
+        "question": "What does the character 'F' represent in the grid?",
+        "answer": "The character 'F' is a text block for 'FLAG', which can be used to form rules about the object Flag."
+      },
+      {
+        "question": "What does the character 'O' represent in the grid?",
+        "answer": "The character 'O' is a text block for 'FLOOR', which can be used to form rules about the object Floor."
+      },
+      {
+        "question": "What does the character 'A' represent in the grid?",
+        "answer": "The character 'A' is a text block for 'GRASS', which can be used to form rules about the object Grass."
+      },
+      {
+        "question": "What does the character 'L' represent in the grid?",
+        "answer": "The character 'L' is a text block for 'LAVA', which can be used to form rules about the object Lava."
+      },
+      {
+        "question": "What does the character 'R' represent in the grid?",
+        "answer": "The character 'R' is a text block for 'ROCK', which can be used to form rules about the object Rock."
+      },
+      {
+        "question": "What does the character 'W' represent in the grid?",
+        "answer": "The character 'W' is a text block for 'WALL', which can be used to form rules about the object Wall."
+      },
+      {
+        "question": "What does the character 'K' represent in the grid?",
+        "answer": "The character 'K' is a text block for 'KEKE', which can be used to form rules about the object Keke."
+      },
+      {
+        "question": "What does the character 'G' represent in the grid?",
+        "answer": "The character 'G' is a text block for 'GOOP', which can be used to form rules about the object Goop."
+      },
+      {
+        "question": "What does the character 'V' represent in the grid?",
+        "answer": "The character 'V' is a text block for 'LOVE', which can be used to form rules about the object Love."
+      },
+      {
+        "question": "What does the character '1' represent in the grid?",
+        "answer": "The character '1' is the text block 'IS', which connects an object to a property or another object in a rule."
+      },
+      {
+        "question": "What does the character '2' represent in the grid?",
+        "answer": "The character '2' is the text block 'YOU', which assigns player control to an object."
+      },
+      {
+        "question": "What does the character '3' represent in the grid?",
+        "answer": "The character '3' is the text block 'WIN', which assigns the winning condition to an object."
+      },
+      {
+        "question": "What does the character '4' represent in the grid?",
+        "answer": "The character '4' is the text block 'KILL', which makes an object destroy the player-controlled object on contact."
+      },
+      {
+        "question": "What does the character '5' represent in the grid?",
+        "answer": "The character '5' is the text block 'PUSH', which makes an object movable by the player-controlled object or other moving objects."
+      },
+      {
+        "question": "What does the character '6' represent in the grid?",
+        "answer": "The character '6' is the text block 'STOP', which makes an object impassable."
+      },
+      {
+        "question": "What does the character '7' represent in the grid?",
+        "answer": "The character '7' is the text block 'MOVE', which makes an object move in its facing direction each turn."
+      },
+      {
+        "question": "What does the character '8' represent in the grid?",
+        "answer": "The character '8' is the text block 'HOT', which makes an object destroy objects with the property 'MELT' on contact."
+      },
+      {
+        "question": "What does the character '9' represent in the grid?",
+        "answer": "The character '9' is the text block 'MELT', which makes an object vulnerable to destruction by objects with the property 'HOT'."
+      },
+      {
+        "question": "What does the character '0' represent in the grid?",
+        "answer": "The character '0' is the text block 'SINK', which makes an object destroy itself and anything that moves onto its tile."
+      },
+      {
+        "question": "What does the character 'b' represent in the grid?",
+        "answer": "The character 'b' is the object Baba, which can be controlled by the player if the rule 'BABA IS YOU' is active."
+      },
+      {
+        "question": "What does the character 's' represent in the grid?",
+        "answer": "The character 's' is the object Skull, which can interact with rules like 'SKULL IS KILL' or 'SKULL IS STOP'."
+      },
+      {
+        "question": "What does the character 'f' represent in the grid?",
+        "answer": "The character 'f' is the object Flag, which is often assigned the property 'WIN' to serve as the goal of the level."
+      },
+      {
+        "question": "What does the character 'o' represent in the grid?",
+        "answer": "The character 'o' is the object Floor, which can be interacted with using rules like 'FLOOR IS PUSH'."
+      },
+      {
+        "question": "What does the character 'a' represent in the grid?",
+        "answer": "The character 'a' is the object Grass, which can interact with rules like 'GRASS IS STOP'."
+      },
+      {
+        "question": "What does the character 'l' represent in the grid?",
+        "answer": "The character 'l' is the object Lava, which is often paired with the property 'HOT' to destroy objects with the 'MELT' property."
+      },
+      {
+        "question": "What does the character 'r' represent in the grid?",
+        "answer": "The character 'r' is the object Rock, which is often used with the property 'PUSH' to move it around the grid."
+      },
+      {
+        "question": "What does the character 'w' represent in the grid?",
+        "answer": "The character 'w' is the object Wall, which is often assigned the property 'STOP' to make it impassable."
+      },
+      {
+        "question": "What does the character 'k' represent in the grid?",
+        "answer": "The character 'k' is the object Keke, which can be assigned properties or controlled by the player with 'KEKE IS YOU'."
+      },
+      {
+        "question": "What does the character 'g' represent in the grid?",
+        "answer": "The character 'g' is the object Goop, which can interact with rules like 'GOOP IS SINK' or 'GOOP IS MELT'."
+      },
+      {
+        "question": "What does the character 'v' represent in the grid?",
+        "answer": "The character 'v' is the object Love, which can interact with rules like 'LOVE IS WIN' or 'LOVE IS PUSH'."
+      },
+
+      {
+        "question": "What does the '_' character at the edges of the grid represent?",
+        "answer": "The '_' character represents the border of the level, which is impassable and blocks movement or pushing."
+      },
+      {
+        "question": "In a grid, if you see 'v' surrounded by empty spaces ('.'), what does this mean?",
+        "answer": "The 'v' represents the object Love, which is free to interact with and not restricted by any border or other objects."
+      },
+      {
+        "question": "If you see 'B12' in the grid, what rule does this represent?",
+        "answer": "The text blocks 'B12' form the rule 'BABA IS YOU', which assigns player control to the object Baba."
+      },
+      {
+        "question": "What does it mean if there is a '3' text block in a grid without a corresponding <object_text>?",
+        "answer": "The '3' text block represents 'WIN'. If it is not part of a valid rule, it has no effect on the game."
+      },
+      {
+        "question": "If a grid has a 'F12' configuration, what does this rule do?",
+        "answer": "The 'F12' rule makes 'FLAG IS YOU', which means the player now controls the Flag object."
+      },
+      {
+        "question": "What does it mean if two objects, like 'S' and '14', are aligned vertically in a grid?",
+        "answer": "If 'S' (Skull) and '14' ('IS KILL') are aligned vertically, it forms the rule 'SKULL IS KILL', making the Skull object lethal to the player."
+      },
+      {
+        "question": "What happens if 'R12' and 'R13' are present in the grid at the same time?",
+        "answer": "The rule 'ROCK IS YOU' is formed from 'R12', and the rule 'ROCK IS WIN' is formed from 'R13'. The player wins the game because he controls Rock and Rock is also the winning condition."
+      },
+
+      {
+        "question": "In a grid, what does the combination 'W16' suggest about walls?",
+        "answer": "The combination 'W16' forms the rule 'WALL IS STOP', making walls impassable to any object or text block."
+      },
+      {
+        "question": "If 'F' is surrounded by '.' and '13' is present in the grid, what does it mean?",
+        "answer": "The 'F' is the Flag text block, and '13' forms 'IS WIN', meaning the player can push Flag text block towards the '13' to form 'F13' making the rule FLAG IS WIN."
+      },
+      {
+        "question": "What can you deduce if there is a '7' text block but no object or object_text aligned with it?",
+        "answer": "The '7' text block represents 'MOVE'. Without being part of a valid rule, it does not affect any object in the level."
+      },
+      {
+        "question": "What does it mean if the objects 'r' (Rock) and 'b' (Baba) are next to each other in the grid?",
+        "answer": "If 'ROCK IS PUSH' is active, Baba (controlled by the player) can push the Rock. Otherwise, their interaction depends on the active rules."
+      },
+      {
+        "question": "How would you interpret a grid where 'BABA IS STOP' and 'BABA IS YOU' are both active?",
+        "answer": "The player can still move Baba around, as 'BABA IS STOP' makes baba impassible while 'BABA IS YOU' gives the player control over it."
+      },
+      {
+        "question": "If 'K12' is active but there is no Keke ('k') object on the grid, what does this imply?",
+        "answer": "The rule 'KEKE IS YOU' is active, but since no Keke object is present, the player has no object to control and cannot make moves with Keke."
+      },
+      {
+        "question": "What does it mean if 'BABA IS WIN' and 'BABA IS YOU' are both active?",
+        "answer": "The player automatically wins the level, as they control Baba and Baba is also the winning condition."
+      },
+      {
+        "question": "What happens if 'f' (Flag) and 'l' (Lava) occupy the same tile, and 'LAVA IS HOT' and 'FLAG IS MELT' are active?",
+        "answer": "The Flag object is destroyed upon contact with the Lava object, as Lava is hot and Flag is meltable."
+      }
+      
+      
+      
+      
+    
+      
+
+
+
+      
+
+
+
+  ]
+}
+
+    
+
+  
+ 
+  

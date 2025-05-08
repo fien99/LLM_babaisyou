@@ -1,0 +1,99 @@
+{"levels":[
+    {
+        "ascii":"________\n_......_\n_......_\n_.Sb.s._\n_.1..s._\n_.4b..1_\n_B12..3_\n_......_\n________",
+        "solution":"UUULLDRRRRURDL",
+        "text solution":"problem: Currently there is no win condition yet so we should make one.\nsolution:\nBrake_Rule[SKULL IS KILL], push with baba the IS text block away.\nMove_To[SKULL], move with baba toward the SKULL text block.\nPush[SKULL]_To[IS], push the SKULL text block toward the IS text block with baba.\nMake_rule[SKULL IS WIN], this sets the skull object to be the win condition.\nMove_To[s], move with baba towards the skull object to win the level.\n",
+        "Active Rules":"BABA IS YOU and SKULL IS KILL",
+        "description level":"Current active rules are BABA IS YOU (B12) meanig we can control the baba object (b).\n SKULL IS KILL (S14) meaning skull objects (s) destroys all objects controlled by you when they touch them, while remaining intact themselves.\n The level has two skull objects and two baba objects.\n Also there are unused text blocks IS and WIN  against the right border.\n Currently there is no win condition yet.\n"},
+    {
+        "ascii":"____________\n_v......V12_\n_...f.....F_\n_.R.....b.1_\n_B12......3_\n_...S.S14.._\n____________",
+        "solution":"LLLLU",
+        "text solution":"problem: there are no obstacles in the way to solve this level.\nsolution:\nMove_To[f], move with baba or love object towards the flag to win the level.", 
+        "Active Rules":"LOVE IS YOU, BABA IS YOU, FLAG IS WIN and SKULL IS KILL", 
+        "description level":"The current active rules are LOVE IS YOU (V12) meaning we can control and move around the love object (v).\n BABA  IS YOU (B12) meaning we can can control and move around the baba object (b).\n FLAG IS WIN  makes the flag object (f) the win condition anything controlled by you touches or is the object wins.\n SKULL IS KILL (S14) meaning skull objects (s) destroys all objects controlled by you when they touch them, while remaining intact themselves.\n The level has one love object (l), one flag object (f), one baba object (b) and unused text blocks ROCK (R) and SKULL (S)."},
+    {
+        "ascii":"____________\n_.........._\n_.r....f..._\n_.....bssss_\n_.R.......F_\n_B1..f..b.1_\n_AO........_\n_.rssssssss_\n_.........F_\n_ss...R...1_\n_....B12W.3_\n_oS14...1.._\n____________",
+        "solution":"UR",
+        "text solution":"problem: there are no obstacles in the way to solve this level.\nsolution:\nMove_To[f], move with an baba towards one of the flags to win the level.", 
+        "Active Rules":"BABA IS YOU, FLAG IS WIN, ROCK IS FLOOR and SKULL IS KILL", 
+        "description level":"The current active rules are BABA IS YOU (B12) meaning we can control and move around the baba object (b). FlAG IS WIN (F13) makes the flag object (f) the win condition anything controlled by you touches or is the object wins. SKULL IS KILL (S14) meaning skull objects (s) destroys all objects controlled by you when they touch them, while remaining intact themselves. ROCK IS FLOOR (R1O) meaning all rock objects (r) transform in floor objects (o). The level has two baba objects (b), two flag objects (f), two rock objects (r), multipe skull objects (s) in a row and one floor object (o). The level has the following lose text tiles, BABA (B), GRASS (A), ROCK (R), WALL (W) and IS (1)."},
+    {
+        "ascii":"____________\n_B1.B.....B_\n_R1.......1_\n_..5....S12_\n_.........._\n_.r.....b.._\n_...L......_\n_......1..F_\n_..f......1_\n_......s..4_\n_F13......._\n____________",
+        "solution":"LUUURDDDDRDLLLLLRRRRDLLLLUULDUUUURRUULRRRDDDDDD",
+        "text solution":"problem: we can not simply move baba towards the flag to win the level because the flag is also kill meaning it wil destroy baba. So we need another win condition.\nsolution:\nBrake_Rule[SKULL IS YOU], push with baba the SKULL text block away.\nMove_To[IS], Move baba towards the lose IS text block.\nPush[IS]_To[WIN], push with baba the IS text block toward the WIN text block.\nPush[SKULL]_To[IS], push with baba the SKULL text block towards the IS text block.\nMake_Rule[SKULL IS WIN], This makes the skull object the win condition.\n  Move_To[s], Move baba towards the skull object to win the level.",
+        "Active Rules":"BABA IS YOU, SKULL IS YOU, FLAG IS KILL and FLAG IS WIN.",
+        "description level":"The current active rules are BABA IS YOU (B12), SKULL IS YOU (S12), meaning we can control the baba (b) and skull (s) object and move these around in the level. FLAG IS KILL (F14) meaning flag objects (f)  destroys all objects controlled by you when they touch them, while remaining intact themselves. FLAG IS WIN (F13) makes the flag object (f) the win condition anything controlled by you touches or is the object wins. The kill condition overrules the win condition of the flag object. The level has a baba object (b), a flag object (f), a rock object (r) and a skull object (s). The level has the following lose text tiles that are not part of a rule, two BABA tiles (B), one ROCK (R) and three IS (1)."},
+    {
+        "ascii":"____________\n_F13wwwwK14_\n_w.o.okofow_\n_wo.o.o.o.w_\n_wko.o.o.ow_\n_wo.o.o.o.w_\n_w.o.o.o.ow_\n_wo.o.o.okw_\n_w.o.o.o.ow_\n_wo.obo.o.w_\n_K17wwwwB12_\n____________",
+        "solution":"uuldrrssruuurruluu",
+        "text solution":"problem: baba should avoid to be touched by keke objects because these will kill baba. The keke objects only move when baba moves.\nsolution:\nMove_To[f], move baba towards the flag while dodging the moving keke objects because they will kill baba. When baba reached the flag the level is completed.",
+        "Active Rules":"BABA IS YOU, KEKE IS MOVE, FLAG IS WIN and KEKE IS KILL", 
+        "description level":"The current active rules are BABA IS YOU (B12) meaning we can control and move baba object (b) around in the level. KEKE IS MOVE (K17) meaning keke object (k) moves one space per turn in their facing direction, reversing direction if they hit the border. FLAG IS WIN (F13) makes the flag object (f) the win condition anything controlled by you touches or is the object wins. KEKE IS KILL (K14) meaning keke objects (k)  destroys all objects controlled by you when they touch them, while remaining intact themselves.The level is surrounded by wall objects (w) and majority of the inner grid is filled with floor objects (o) but there are no rules linked to these objects so they have no properties. There is one flag object (f), one baba object (b) and three keke objects (k)."},
+    {
+        "ascii":"____________\n_G13wwwwK14_\n_w.o.okofow_\n_wo.o.o.o.w_\n_wko.o.o.ow_\n_wggggggggw_\n_w.o.o.o.ow_\n_wo.o.o.okw_\n_w.o.o.o.ow_\n_wo.obo.o.w_\n_K17wwwwB12_\n____________",
+        "solution":"uuuu",
+        "text solution":"problem: baba should avoid to be touched by keke objects because these will kill baba. The keke objects only move when baba moves.\nsolution:\nMove_To[g], move with baba towards the goop objects while dodging the keke objects because they will kill baba. When baba reached the goop the level is won.", 
+        "Active Rules":"BABA IS YOU, GOOP IS WIN, KEKE IS MOVE and KEKE IS KILL", 
+        "description level":"The current active rules are BABA IS YOU (B12) meaning we can control and move baba object (b) around in the level. KEKE IS MOVE (K17) meaning keke object (k) moves one space per turn in their facing direction, reversing direction if they hit the border. GOOP IS WIN (G13) makes the goop object (g) the win condition anything controlled by you touches or is the object wins. KEKE IS KILL meaning keke objects (k) destroys all objects controlled by you when they touch them, while remaining intact themselves.The level is surrounded by wall objects (w) and majority of the inner grid is filled with floor objects (o) but there are no rules linked to these objects so they have no properties.There is one flag (f), one baba object (b), three keke objects (k) and there are 6 goop objects (g) next to each other."},
+    {
+        "ascii":"____________\n_F13wwwwK14_\n_w.o.okofow_\n_wo.oko.o.w_\n_wko.o.o.ow_\n_wo.o.o.okw_\n_wko.o.o.ow_\n_wo.o.o.okw_\n_wko.o.o.ow_\n_wo.obo.o.w_\n_K17wwwwB12_\n____________",
+        "solution":"uuluuuurrldrurur",
+        "text solution":"problem: baba should avoid to be touched by keke objects because these will kill baba. the keke objects only move when baba moves.\nsolution:\nMove_To[f], move baba towards the flag while dodging the moving keke objects because they will kill baba. When baba reached the flag the level is completed.", 
+        "Active Rules":"BABA IS YOU, KEKE IS MOVE, FLAG IS WIN and KEKE IS KILL",
+        "description level":"The current active rules are BABA IS YOU (B12) meaning we can control and move baba object (b) around in the level. KEKE IS MOVE (K17) meaning keke object (k) moves one space per turn in their facing direction, reversing direction if they hit the border. FLAG IS WIN (F13) makes the flag object (f) the win condition anything controlled by you touches or is the object wins. KEKE IS KILL (K14) meaning keke objects (k) destroys all objects controlled by you when they touch them, while remaining intact themselves.The level is surrounded by wall objects (w) and majority of the inner grid is filled with floor objects (o) but there are no rules linked to these objects so they have no properties. There is one flag object (f), one baba object (b) and Seven keke objects (k)."},
+    {
+        "ascii":"__________\n_........_\n_...r.ooo_\n_.......O_\n_.......1_\n_s..3...2_\n_........_\n_..R1...._\n_.....S14_\n__________",
+        "solution":"llllldddrurdduluuu",
+        "text solution":"problem: There is no win condition yet so we need to make a win condition while avoiding the skull object because this will kill floor.\nsolution:\nMove_To[WIN], move with floor towards the WIN text block.\nPUSH[WIN]_To[IS], push with floor the WIN text block towards the IS text block.\n  Make_Rule[ROCK IS WIN], This makes the rock object the win condition.\nMove_To[r], Move with floor towards the rock object to win the level. ", 
+        "Active Rules":"FLOOR IS YOU and SKULL IS KILL", 
+        "description level":"The current active rules are FLOOR IS YOU (O12) meaning we can control and move floor objects (o) around in the level. and SKULL IS KILL (S14 ) meaning skull objects (s) destroys all objects controlled by you when they touch them, while remaining intact themselves. The level has three floor objects (o), a rock object (r) and skull object at (s). The lose text tiles ROCK (R), IS (1) and WIN (3). Currently there is no win condition yet."},
+    {
+        "ascii":"____________\n_K..w..wK14_\n_1....kwf.w_\n_7...B12www_\n_.........._\n_.........._\n_w.www..W16_\n_w........._\n_..b......k_\n_w........._\n_..kwwwF13._\n____________",
+        "solution":"urrruruullldrrudrurrluu",
+        "text solution":"problem: the flag object is surrounded by walls meaning we can not reach the flag because of WALL IS STOP. Baba should also avoid the moving keke objects because they will kill keke.\nSolution:\n  Move_to[WALL], move baba towards the WALL text block.\n  Brake_Rule[WALL IS STOP], push with baba the WALL text block away. this also means that the wall objects are passable again.\nMove_to[f], move with baba towards the flag to win the level.", 
+        "Active Rules":"BABA IS YOU, FLAG IS WIN, KEKE IS MOVE, KEKE IS KILL and WALL IS STOP", 
+        "description level":"The current active rules are KEKE IS MOVE (K17) meaning keke object (k) moves one space per turn in their facing direction, reversing direction if they hit the border. FLAG IS WIN (F13) makes the flag object (f) the win condition anything controlled by you touches or is the object wins. KEKE IS KILL (K14) meaning keke objects (k) destroys all objects controlled by you when they touch them, while remaining intact themselves. WALL IS STOP (W16) meaning wall object (w) becomes impassible. BABA IS YOU (B12) meaning we can control and move baba object (b) around in the level. The level has one baba object (b), one flag object (f), multipe wall objects throughout the level which are impassible and three keke objects (k)."},
+    {
+        "ascii":"____________\n_K..w..wK14_\n_1....kwf.._\n_7...A12www_\n_s........._\n_.........._\n_w.www..W16_\n_w........._\n_........ak_\n_w........._\n_..fwwwF13._\n____________",
+        "solution":"luluuurruudlu",
+        "text solution":"problem: one flag is surroundend by walls so we can not reach that flag because of WALL IS STOP. But the other flag is reacheable. Avoid being touched by keke object because they will kill grass.\nsolution:\nMove_To[f], move with grass towards the flag object that is not surrounded by walls to win the level.",
+        "Active Rules":"GRASS IS YOU, FLAG IS WIN, KEKE IS MOVE, KEKE IS KILL and WALL IS STOP",
+        "description level":"The current active rules are KEKE IS MOVE (K17) meaning keke object (k) moves one space per turn in their facing direction, reversing direction if they hit the border. FLAG IS WIN (F13) makes the flag object (f) the win condition anything controlled by you touches or is the object wins. KEKE IS KILL (K14) meaning keke objects (k) destroys all objects controlled by you when they touch them, while remaining intact themselves. WALL IS STOP (W16 ) meaning wall object (w) becomes impassible. GRASS IS YOU (A12) meaning we can control and move grass object (a) around in the level. The level has one grass object (a), two flag object (f), multipe wall objects throughout the level which are impassible and two keke objects (k)."},
+
+    {
+        "ascii": "____________\n_B12.....b._\n_.F.s.s...._\n_.1.....R..._\n_........3._\n_S16.....ss_\n_........sf_\n____________",
+        "solution": "UUULLLDRURDDLU",
+        "text solution": "problem: The level has no win condition yet and several skulls block the flag area.\nsolution:\nMove_To[WIN], move baba towards the WIN text block.\nPush[WIN]_To[IS], push with baba the WIN text block to the IS text block.\nMake_Rule[FLAG IS WIN], this sets flag as the win condition.\nMove_To[STOP], move baba towards the STOP text block.\nBrake_rule[SKULL IS STOP] this makes the skull objects passable again.\nMove_To[f], move baba to the flag to win the level.",
+        "Active Rules": "BABA IS YOU and SKULL IS STOP",
+        "description level": "The current active rules are BABA IS YOU (B12), SKULL IS STOP (S16). Baba object (b) is controllable and skulls (s) cannot be passed. There is a flags object (f) located in the right lower corner surrounded by skull objects (s). There are also unused text blocks present in the level namely FLAG (F) IS (1) and WIN (3)"
+    },
+    {
+        "ascii": "____________\n_B12......._\n_......b..._\n_...k..K14._\n_..........._\n_.........._\n_.......F13_\n____________",
+        "solution": "LUUURRDD",
+        "text solution": "problem: Baba should reach the flag to win the level but there is no flag object present in the level. But we can create a new win condition.\nsolution:\nMove_To[IS], navigate baba towards the IS text block of the rule KEKE IS KILL.\nBrake_rule[KEKE IS KILL}, brake the rule by pushing the IS text block away from the rule, meaning the skull object will not kill baba anymore.\nPush[IS]_To[WIN], push with baba the IS text block above the WIN text block.\nMove_To[KEKE], move baba towards the KEKE text block.\nPUSH[KEKE]_To[IS], push with baba the KEKE text block above the IS text block we moved before. Make_rule[SKULL IS WIN], this rule makes the skull object also the win condition.\nMove_To[k], move baba towards the keke object to win the level.",
+        "Active Rules": "BABA IS YOU, FLAG IS WIN and KEKE IS KILL",
+        "description level": "The active rules are BABA IS YOU (B12), KEKE IS KILL (K14), and FLAG IS WIN (F13). Keke objects (k) kill baba on contact, while baba (b) must reach a flag (f). Walls (w) are present as obstacles, without additional properties."
+    },
+    {
+        "ascii": "____________\n_F12......3_\n_...bbbb..._\n_...b.rb..._\n_...bbbb..._\n_B15....R1._\n_..f......._\n____________",
+        "solution": "LLUUURRDD",
+        "text solution": "problem: Currently there is no object set to win so there is no win condition. But we can make the rock the win condition with the unused text blocks. The rock object is surrounded by baba objects to reach it we should push a baba object away to create a passage.\nsolution:\nMove_To[IS], move the flag towards the IS text block in .\nPush[IS]_To[WIN], pushing the IS (1) text block with the flag to the WIN (3) text block.\nMove_To[ROCK], move with flag towoards the rock text block.\nPush[ROCK]_To[IS], pusing with the flag the ROCK (R) text block towards the IS (1) text block we moved before.\n Make_Rule[ROCK IS WIN], now the rock object is set as win condition.\nMove_to[b], move with the flag towards a baba object and push it out of the way for reaching the rock object.\nMove_To[r], move the flag towards the rock to win the level bit .",
+        "Active Rules": "FLAG IS YOU and BABA IS PUSH",
+        "description level": "Current active rules are FLAG IS YOU (F12) and BABA IS PUSH (B15). Baba objects (b) are pushable, and flag object (f) can move freely in the grid. There is also a rock object (r, ) that surrounded by baba objects and unused text blocks ROCK (R), IS (1) and WIN (3)."
+    },
+    {
+        "ascii": "____________\n_V12....F.._\n_...v...1.._\n_.......3.._\n_V19......K_\n_kkk......1_\n_f.k......8_\n____________",
+        "solution": "RRRUULLDDRR",
+        "text solution": "problem: The flag object is surrounded by keke objects meaning that the love object can not reach the flag without melting and therefore destoyed. So we need to brake the LOVE IS MELT rule first.\nsolution:\n. Move_To[IS], move love (v) towards the IS (1) text block in the rule LOVE IS MELT\nBrake_Rule[LOVE IS MELT], push with love (v) the IS (1) text block away meaning that love (v) won't melt any more when touching keke.\nMove_To[f], move with love (v) towards the flag (f) to win the level",
+        "Active Rules": "LOVE IS YOU, LOVE IS MELT, KEKE IS HOT and FLAG IS WIN",
+        "description level": "The active rules LOVE IS YOU (V12), LOVE IS MELT (V19), FLAG IS WIN (F13), and KEKE IS HOT (K18). The love object (v) can move freely in the grid but is also set to melt meaning if it touch something set to hot it will melt. The flag object is set to be the win condition. Keke object (k) is set to hot meaning it wil melt the love object."
+    },
+    {
+        "ascii": "____________\n_B12..R15.._\n_..b......._\n_.....r...._\n_.........._\n_ssssssssss_\n_.........._\n_F13.f..S10_\n____________",
+        "solution": "ULLLLDDRRU",
+        "text solution": "problem: The flag object is the win condition but cannot be reached by baba without touching the skull objects meaning baba wil be destroyed and the skull object that is touched by baba. But we can use the rock object to create a passage because of the rule ROCK IS PUSH.\nsolution:\nMove_To[r], move baba (b) towards the rock object (r).\nPush[r]_To[s] Push with baba the rock object (r) towards a skull object (s) the skull object and rock object will both be destroyed creating a passage.Move_To[f], move baba (b) through the passage to the flag obje (f) to win the level.\n",
+        "Active Rules": "BABA IS YOU, FLAG IS WIN, ROCK IS PUSH, and SKULL IS SINK",
+        "description level": "Active rules include BABA IS YOU (B12), FLAG IS WIN (F13), ROCK IS PUSH (R15),  and SKULL IS STOP (S10). baba (b) can move freely in the grid. the rock object (r) can be pushed by baba. the skull objects (s) will destroy the object it touched and itself"
+    }
+
+]}
